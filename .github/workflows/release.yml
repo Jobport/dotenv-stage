@@ -1,0 +1,21 @@
+name: Release gem
+
+on:
+  push:
+    branches:
+    - master
+    paths:
+    - 'lib/**/version.rb'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: eregon/use-ruby-action@v1
+    - name: Build and publish gem
+      uses: jstastny/publish-gem-to-github@master
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        owner: Jobport

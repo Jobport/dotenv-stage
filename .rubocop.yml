@@ -1,0 +1,56 @@
+Layout/ArrayAlignment:
+  EnforcedStyle: indented
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
+Layout/MultilineArrayBraceLayout:
+  EnforcedStyle: same_line
+
+Layout/MultilineHashBraceLayout:
+  EnforcedStyle: same_line
+
+Layout/MultilineMethodCallBraceLayout:
+  EnforcedStyle: same_line
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Metrics/LineLength:
+  Max: 110
+
+Metrics/MethodLength:
+  Enabled: false # it is always complaining when we use perfectly clear case statements
+
+Naming/PredicateName:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false # there is a bug that makes it produce false hits
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/RaiseArgs:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/SymbolArray:
+  MinSize: 3
+
+Style/WordArray:
+  MinSize: 3

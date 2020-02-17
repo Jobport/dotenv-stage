@@ -1,0 +1,17 @@
+name: Run lint
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: eregon/use-ruby-action@v1
+    - name: Build and test
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+        rubocop
