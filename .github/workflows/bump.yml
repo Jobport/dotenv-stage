@@ -1,0 +1,22 @@
+name: Bump version
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - '**/*'
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.CI_PASSWORD }}
+
+      - name: Bump version
+        id: bump
+        uses: Jobport/bump-gem-version-action@main
