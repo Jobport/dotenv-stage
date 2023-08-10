@@ -1,0 +1,26 @@
+name: Ticketer
+
+on:
+  pull_request:
+    types: ['opened', 'edited', 'reopened', 'synchronize', 'labeled', 'unlabeled']
+    branches-ignore:
+      - dependabot/**
+
+jobs:
+  title:
+    name: ticket check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check for ticket
+        continue-on-error: true
+        uses: neofinancial/ticket-check-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ticketLink: 'https://jobport.atlassian.net/browse/DEV-%ticketNumber%'
+          ticketPrefix: 'DEV-'
+          titleRegex: '^\[DEV-(?<ticketNumber>\d+)\]'
+          titleFormat: '[%prefix%%id%] %title%'
+          branchRegex: 'DEV-(?<ticketNumber>\d+)'
+          bodyRegex: 'DEV-(?<ticketNumber>\d+)'
+          bodyURLRegex: 'http(s?):\/\/(jobport.atlassian.net)(\/browse)\/(DEV\-)(?<ticketNumber>\d+)'
