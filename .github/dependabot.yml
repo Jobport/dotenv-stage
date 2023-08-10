@@ -1,0 +1,19 @@
+version: 2
+registries:
+  rubygems-server-rubygems-pkg-github-com:
+    type: rubygems-server
+    url: https://rubygems.pkg.github.com
+    username: "${{secrets.CI_USER}}"
+    password: "${{secrets.CI_PASSWORD}}"
+updates:
+  - package-ecosystem: bundler
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: tuesday
+      time: "04:00"
+    open-pull-requests-limit: 99
+    rebase-strategy: auto
+    versioning-strategy: increase
+    registries:
+      - rubygems-server-rubygems-pkg-github-com
