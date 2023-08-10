@@ -1,0 +1,29 @@
+name: Quality Control
+
+on: [pull_request_target]
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  BUNDLE_RUBYGEMS__PKG__GITHUB__COM: ${{ secrets.CI_USER}}:${{ secrets.CI_PACKAGE_READ_TOKEN }}
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Lint
+        run: bundle exec rubocop
+
+      - name: Test
+        run: bundle exec rake test
