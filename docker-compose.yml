@@ -1,0 +1,24 @@
+version: "3.7"
+
+x-interactive: &interactive
+  tty: false
+  stdin_open: true
+
+x-build-base: &build-base
+  target: base
+  args:
+    package_token: ${github_user:-}:${jobport_github_token:-}
+
+services:
+  gem:
+    <<: *interactive
+    build:
+      <<: *build-base
+      context: .
+    command: sh
+    volumes:
+      - ./:/app:delegated
+      - bundle:/usr/local/bundle
+
+volumes:
+  bundle:
