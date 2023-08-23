@@ -27,6 +27,6 @@ For example:
 
 ### Package
 
-A gem will automatically be built and pushed.
+A package will automatically be built and published.
 
 - [ ] Add a bump label (See [semver](https://semver.org/)) bump:major, bump:minor, or bump:patch
