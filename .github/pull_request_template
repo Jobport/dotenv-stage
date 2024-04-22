@@ -11,6 +11,8 @@ Include a short summary of what this pr accomplishes. For example:
 
 Explain the motivation for making this change. What existing problem does the pull request solve?
 
+This resolves PROJECT-ticket-nr.
+
 ### Critique
 
 If I were to review my own code I would say its slightly weaker or questionable aspects are ...
