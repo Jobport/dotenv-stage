@@ -1,4 +1,4 @@
-FROM ghcr.io/jobport/ruby:3.3.5-alpine3.20 as base
+FROM ghcr.io/jobport/ruby:3.3.6-alpine3.20 as base
 
 RUN apk --no-cache add build-base
 
