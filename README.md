@@ -8,3 +8,4 @@ that it will use RAILS_ENV.
 
 It basically does the same thing as [dotenv-rails](https://rubygems.org/gems/dotenv-rails) does for Rails apps
 for all other apps. (dotenv-rails uses some modules and classes that are Rails specific.)
+a
